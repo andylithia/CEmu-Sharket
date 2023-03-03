@@ -143,6 +143,8 @@ void sdl_event_loop(cemu_sdl_t *cemu) {
                                     done = true;
                                 }
                                 break;
+                            default:
+                                break;
                         }
                     }
                     fallthrough;
