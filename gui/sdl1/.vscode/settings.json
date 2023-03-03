@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "cemu.h": "c",
+        "keypad.h": "c",
+        "lcd.h": "c",
+        "keymap_sharket.h": "c"
+    }
+}

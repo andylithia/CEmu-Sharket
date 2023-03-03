@@ -1,0 +1,29 @@
+
+appname := cemu-sdl
+
+# ARCH :=arm64
+CC := aarch64-linux-gcc
+#CC := gcc
+
+CCFLAGS := -std=c99 -O2 -Wall -Wextra -D_GNU_SOURCE=1 -D_REENTRANT -I/usr/include/SDL
+# CCFLAGS += -Wno-unused-parameter -Werror=shadow -Werror=write-strings -Werror=redundant-decls -Werror=format -Werror=format-security -Werror=declaration-after-statement -Werror=implicit-function-declaration -Werror=date-time -Werror=return-type -Werror=pointer-arith -Winit-self
+
+# Add these flags if your compiler supports it
+#CFLAGS += -Wstack-protector -fstack-protector-strong --param=ssp-buffer-size=1 -fsanitize=address,bounds -fsanitize-undefined-trap-on-error
+
+LDLIBS  := -L../../core/ -lcemucore -lSDL
+
+# srcfiles := main.c keymap.c
+srcfiles := main.c keymap_sharket.c
+objects  := $(patsubst %.c, %.o, $(srcfiles))
+
+all: $(appname)
+
+$(appname): $(objects)
+	$(CC) $(CCFLAGS) $(LDFLAGS) -o $(appname) $(objects) $(LDLIBS)
+
+%.o: %.c
+	$(CC) $(CPPFLAGS) $(CCFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(objects) $(appname)
