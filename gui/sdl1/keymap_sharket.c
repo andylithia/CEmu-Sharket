@@ -9,6 +9,7 @@ const cemu_sdl_key_t sharket_keymap[] = {
     { SDLK_F6,        0, 5, "2nd"   },
     { SDLK_F7,        0, 6, "mode"  },
     { SDLK_F8,        0, 7, "del"   },
+    { SDLK_POWER,     1, 0, "on"    },
     { SDLK_x,         1, 1, "sto->" },
     { SDLK_s,         1, 2, "ln"    },
     { SDLK_n,         1, 3, "log"   },
